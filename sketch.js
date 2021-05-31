@@ -1,3 +1,33 @@
+var score =0;
+console.log(score);
+
+var message = "Hi Alec"
+console.log(message);
+
+var bool =true;
+console.log(bool);
+
+var object;
+console.log(object);
+
+object = null;
+console.log(object);
+
+
+var arr1=[10, "Hello", false, 30]
+console.log(arr1)
+
+var arr2 = [[1,2], [3,4], [5,6]]
+console.log(arr2[0][1])
+
+arr1.push("Pigs")
+console.log(arr1)
+
+arr1.pop("Pigs")
+console.log(arr1)
+
+var gameState="onSling"
+
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
@@ -69,16 +99,21 @@ function draw(){
 }
 
 function mouseDragged(){
-    Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+    if(gameState==="onSling"){
+        Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+    }
+    
 }
 
 
 function mouseReleased(){
     slingshot.fly();
+    gameState="launch"
 }
 
 function keyPressed(){
+
     if(keyCode === 32){
-        slingshot.attach(bird.body);
+     //   slingshot.attach(bird.body);
     }
 }
